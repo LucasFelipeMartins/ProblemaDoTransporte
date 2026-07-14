@@ -1,4 +1,4 @@
-# 🚛 Otimização de Fluxo em Redes: Problema do Transporte
+# Otimização de Fluxo em Redes: Problema do Transporte
 
 Uma aplicação web interativa desenvolvida para resolver o clássico **Problema do Transporte**, estudado na disciplina de **Pesquisa Operacional**.
 
@@ -6,7 +6,7 @@ O sistema permite calcular a **Solução Básica Factível (SBF)** inicial para 
 
 ---
 
-## 📖 Sobre o Projeto
+## Sobre o Projeto
 
 Este projeto foi desenvolvido para auxiliar estudantes e profissionais na visualização e resolução de problemas de transporte.
 
@@ -20,7 +20,7 @@ A aplicação possui uma interface simples e responsiva, permitindo que o usuár
 
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 - ✔️ Geração dinâmica da matriz
 - ✔️ Inserção de ofertas e demandas
@@ -33,9 +33,9 @@ A aplicação possui uma interface simples e responsiva, permitindo que o usuár
 
 ---
 
-## 🧠 Algoritmos Implementados
+## Algoritmos Implementados
 
-### 📌 Método do Canto Noroeste
+### Método do Canto Noroeste
 
 O método mais simples e rápido para obtenção da solução inicial.
 
@@ -45,7 +45,7 @@ Ideal como ponto de partida para comparação entre algoritmos.
 
 ---
 
-### 📌 Método do Custo Mínimo
+### Método do Custo Mínimo
 
 Método guloso que sempre escolhe a rota de menor custo disponível.
 
@@ -53,7 +53,7 @@ Normalmente produz uma solução inicial melhor que o Método do Canto Noroeste.
 
 ---
 
-### 📌 Método de Aproximação de Vogel (VAM)
+### Método de Aproximação de Vogel (VAM)
 
 O método mais eficiente entre os três implementados.
 
@@ -63,7 +63,7 @@ Em muitos casos, encontra uma solução muito próxima da solução ótima.
 
 ---
 
-## 🚀 Como Utilizar
+## Como Utilizar
 
 ### 1. Clone o repositório
 
@@ -127,7 +127,7 @@ O sistema exibirá:
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - HTML5
 - CSS3
@@ -136,7 +136,7 @@ O sistema exibirá:
 
 ---
 
-## 📚 Base Teórica
+## Base Teórica
 
 Este projeto foi desenvolvido com base em conteúdos de **Pesquisa Operacional** e **Fluxo em Redes**, contemplando:
 
@@ -150,50 +150,19 @@ Este projeto foi desenvolvido com base em conteúdos de **Pesquisa Operacional**
 
 ---
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```text
-📦 projeto
+projeto
  ├── index.html
- ├── style.css
- ├── script.js
+ ├── css/style.css
+ ├── js/script.js
  ├── README.md
- └── assets/
 ```
 
 ---
 
-## 🤝 Contribuindo
-
-Contribuições são bem-vindas!
-
-1. Faça um Fork do projeto.
-
-2. Crie uma branch.
-
-```bash
-git checkout -b feature/NovaFuncionalidade
-```
-
-3. Faça suas alterações.
-
-4. Commit.
-
-```bash
-git commit -m "Adiciona nova funcionalidade"
-```
-
-5. Push.
-
-```bash
-git push origin feature/NovaFuncionalidade
-```
-
-6. Abra um Pull Request.
-
----
-
-## 💡 Melhorias Futuras
+## Melhorias Futuras
 
 - Implementação do método Stepping Stone;
 - Implementação do Método MODI (Multiplicadores);
@@ -204,16 +173,10 @@ git push origin feature/NovaFuncionalidade
 
 ---
 
-## 📄 Licença
+## Licença
 
 Este projeto foi desenvolvido para fins acadêmicos.
 
 Sinta-se à vontade para utilizá-lo como material de estudo.
 
 ---
-
-<div align="center">
-
-**Feito com lógica, código e muita Pesquisa Operacional. 🚛**
-
-</div>
