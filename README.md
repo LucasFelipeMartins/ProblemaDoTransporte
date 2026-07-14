@@ -68,7 +68,7 @@ Em muitos casos, encontra uma solução muito próxima da solução ótima.
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/SEU-USUARIO/NOME-DO-REPOSITORIO.git
+git clone https://github.com/LucasFelipeMartins/Otimiza-o-de-Fluxo-em-Redes-Problema-do-Transporte.git
 ```
 
 ou faça o download do projeto em formato ZIP.
