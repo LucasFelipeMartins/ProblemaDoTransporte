@@ -1,6 +1,6 @@
 # Otimização de Fluxo em Redes: Problema do Transporte
 
-Uma aplicação web interativa desenvolvida para resolver o clássico **Problema do Transporte**, estudado na disciplina de **Pesquisa Operacional**.
+Uma aplicação web interativa desenvolvida para resolver o clássico **Problema do Transporte**, estudado na disciplina de **Teoria Dos Grafos**.
 
 O sistema permite calcular a **Solução Básica Factível (SBF)** inicial para minimizar custos logísticos entre fornecedores (oferta) e consumidores (demanda), utilizando três dos principais métodos acadêmicos da área.
 
@@ -132,13 +132,13 @@ O sistema exibirá:
 - HTML5
 - CSS3
 - Tailwind CSS
-- JavaScript (Vanilla)
+- JavaScript
 
 ---
 
 ## Base Teórica
 
-Este projeto foi desenvolvido com base em conteúdos de **Pesquisa Operacional** e **Fluxo em Redes**, contemplando:
+Este projeto foi desenvolvido com base em conteúdos de **Teoria Dos Grafos** e **Fluxo em Redes**, contemplando:
 
 - Problema do Transporte;
 - Solução Básica Factível;
