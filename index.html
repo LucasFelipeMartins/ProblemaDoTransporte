@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema do Transporte</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="min-h-screen p-4 md:p-8 flex items-center justify-center">
+
+    <div class="max-w-4xl w-full bg-white rounded-xl shadow-lg p-6 md:p-10">
+        
+        <header class="mb-8 text-center relative">
+            <h1 id="titulo-principal" class="text-3xl font-bold text-gray-800">Problema do Transporte</h1>
+            <p id="subtitulo-principal" class="text-gray-500 mt-2">Escolha um método para distribuir o transporte</p>
+        </header>
+
+        <div id="step-0" class="space-y-6">
+            <h2 class="text-xl font-semibold text-gray-700 border-b pb-2 text-center">Selecione o Método de Resolução</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                <button onclick="selecionarMetodo('noroeste', 'Método do Canto Noroeste')" class="group flex flex-col items-center p-6 bg-white border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50 transition-all text-left w-full h-full shadow-sm">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 text-center">Canto Noroeste</h3>
+                    <p class="text-sm text-gray-500 text-center">Inicia a alocação pelo canto superior esquerdo da matriz.</p>
+                </button>
+                
+                <button onclick="selecionarMetodo('minimo', 'Método do Custo Mínimo')" class="group flex flex-col items-center p-6 bg-white border-2 border-gray-200 rounded-xl hover:border-green-500 hover:bg-green-50 transition-all text-left w-full h-full shadow-sm">
+                    <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 text-center">Custo Mínimo</h3>
+                    <p class="text-sm text-gray-500 text-center">Prioriza as rotas com os menores custos de transporte.</p>
+                </button>
+
+                <button onclick="selecionarMetodo('vogel', 'Aproximação de Vogel')" class="group flex flex-col items-center p-6 bg-white border-2 border-gray-200 rounded-xl hover:border-purple-500 hover:bg-purple-50 transition-all text-left w-full h-full shadow-sm">
+                    <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 text-center">Aprox. de Vogel</h3>
+                    <p class="text-sm text-gray-500 text-center">Utiliza penalidades para encontrar a melhor alocação inicial.</p>
+                </button>
+            </div>
+        </div>
+
+        <div id="step-1" class="hidden space-y-6 mt-8">
+            <h2 class="text-xl font-semibold text-gray-700 border-b pb-2 flex justify-between items-center">
+                1. Dimensões do Problema
+                <button onclick="voltarMenu()" class="text-sm text-blue-600 hover:underline font-normal">← Trocar Método</button>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Quantidade de Fornecedores (Linhas)</label>
+                    <input type="number" id="numFornecedores" min="1" value="3" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Quantidade de Consumidores (Colunas)</label>
+                    <input type="number" id="numConsumidores" min="1" value="3" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
+                </div>
+            </div>
+            <button onclick="gerarFormularios()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors shadow-md">
+                Continuar
+            </button>
+        </div>
+
+        <div id="step-2" class="hidden space-y-8 mt-8">
+            <h2 class="text-xl font-semibold text-gray-700 border-b pb-2 flex justify-between items-center">
+                2. Inserir Dados
+                <button onclick="voltarPasso1()" class="text-sm text-blue-600 hover:underline font-normal">← Voltar</button>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-blue-50 rounded-lg p-5 border border-blue-100">
+                    <h3 class="text-lg font-medium text-blue-800 mb-4">Oferta (Fornecedores)</h3>
+                    <div id="inputs-fornecedores" class="space-y-3">
+                        </div>
+                </div>
+
+                <div class="bg-green-50 rounded-lg p-5 border border-green-100">
+                    <h3 class="text-lg font-medium text-green-800 mb-4">Demanda (Consumidores)</h3>
+                    <div id="inputs-consumidores" class="space-y-3">
+                        </div>
+                </div>
+            </div>
+
+            <div id="painel-custos" class="hidden mt-8 bg-yellow-50 rounded-lg p-5 border border-yellow-100">
+                <h3 class="text-lg font-medium text-yellow-800 mb-2">Custos Unitários de Transporte</h3>
+                <p class="text-sm text-yellow-700 mb-4">Preencha o valor do frete de cada fornecedor para cada consumidor.</p>
+                <div id="inputs-custos" class="overflow-x-auto bg-white rounded-lg shadow-sm border border-yellow-200">
+                    </div>
+            </div>
+
+            <button onclick="calcular()" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors shadow-md text-lg">
+                Calcular Matriz de Alocação
+            </button>
+        </div>
+
+        <div id="step-3" class="hidden mt-10 space-y-6">
+            <h2 class="text-xl font-semibold text-gray-700 border-b pb-2">3. Resultado (Matriz de Alocação)</h2>
+            
+            <div class="overflow-x-auto border border-gray-200 rounded-lg shadow-sm">
+                <table class="min-w-full divide-y divide-gray-200 text-center">
+                    <thead class="bg-gray-100" id="tabela-cabecalho">
+                        </thead>
+                    <tbody class="bg-white divide-y divide-gray-200" id="tabela-corpo">
+                        </tbody>
+                </table>
+            </div>
+
+            <div id="painel-resultado-custo" class="hidden text-center text-2xl font-bold text-gray-800 bg-gray-100 py-6 rounded-lg mt-6 shadow-inner border border-gray-200">
+                Custo Total: $ <span id="valor-custo" class="text-green-600">0</span>
+            </div>
+
+            <div class="flex justify-center gap-4 mt-6">
+                <button onclick="reiniciarMesmoMetodo()" class="text-gray-600 hover:text-gray-900 border border-gray-300 hover:bg-gray-100 px-6 py-2 rounded-lg transition-colors font-medium">
+                    Refazer com este Método
+                </button>
+                <button onclick="voltarMenu()" class="bg-blue-50 text-blue-600 hover:bg-blue-100 border border-blue-200 px-6 py-2 rounded-lg transition-colors font-medium">
+                    Voltar ao Menu Principal
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
